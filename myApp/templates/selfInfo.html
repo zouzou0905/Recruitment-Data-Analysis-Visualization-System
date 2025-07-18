@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="description" content="Neon Admin Panel">
+	<meta name="author" content="">
+	<title>个人信息</title>
+	<link rel="stylesheet" href="/static/css/jquery-ui-1.10.3.custom.min.css">
+	<link rel="stylesheet" href="/static/css/entypo.css">
+	<link rel="stylesheet" href="/static/css/css.css">
+	<link rel="stylesheet" href="/static/css/bootstrap.css">
+	<link rel="stylesheet" href="/static/css/neon-core.css">
+	<link rel="stylesheet" href="/static/css/neon-theme.css">
+	<link rel="stylesheet" href="/static/css/neon-forms.css">
+	<link rel="stylesheet" href="/static/css/custom.css">
+
+	<script src="/static/js/jquery-1.11.0.min.js"></script>
+
+
+</head>
+
+
+<body class="page-body  page-left-in" data-url="http://neon.dev">
+    <div class="page-container">
+        <div class="sidebar-menu">
+            <header class="logo-env">
+                <div class="logo">
+                        <h3 style="color: #FFFFFF;font-size: initial;font-weight: bold;margin-top: 5px;
+                        text-align: center;">基于Python的招聘数据分析<br>可视化系统</h3>
+                </div>
+            </header>
+
+            <div class="sidebar-user-info">
+                <div class="sui-normal">
+                    <a href="#" class="user-link">
+                        <img style="width: 95%;border-radius: 50%" src="/media/{{ userInfo.avatar }}" width="120" alt="">
+                        <span style="text-align: center;padding-top: 200px">👑</span>
+                        <strong style="text-align: center;margin-top: 5px">{{ userInfo.username }}</strong>
+                    </a>
+                </div>
+            </div>
+
+<ul id="main-menu">
+    <li>
+        <a href="/myApp/home">
+            <i class="entypo-network"></i>
+            <span>首页</span>
+        </a>
+    </li>
+    <li class="opened active">
+        <a href="#">
+            <i class="entypo-user"></i>
+            <span>个人中心</span>
+        </a>
+        <ul>
+            <li class="active">
+                <a href="/myApp/selfInfo">
+                    <i class="entypo-vcard"></i>
+                    <span>个人信息</span>
+                </a>
+            </li>
+            <li>
+                <a href="/myApp/changePassword">
+                    <i class="entypo-eye"></i>
+                    <span>修改密码</span>
+                </a>
+            </li>
+        </ul>
+    </li>
+    <li>
+        <a href="#">
+            <i class="entypo-layout"></i>
+            <span>数据统计</span>
+        </a>
+        <ul>
+            <li>
+                <a href="/myApp/tableData">
+                    <i class="entypo-list"></i>
+                    <span>数据总览</span>
+                </a>
+            </li>
+            <li>
+                <a href="/myApp/historyTableData">
+                    <i class="entypo-back-in-time"></i>
+                    <span>历史查阅</span>
+                </a>
+            </li>
+        </ul>
+    </li>
+    <li>
+        <a href="mailbox.html">
+            <i class="entypo-chart-bar"></i>
+            <span>可视化图表</span>
+        </a>
+        <ul>
+            <li>
+                <a href="/myApp/salary">
+                    <i class="entypo-inbox"></i>
+                    <span>薪资情况</span>
+                </a>
+            </li>
+            <li>
+                <a href="/myApp/company">
+                    <i class="entypo-attach"></i>
+                    <span>企业情况</span>
+                </a>
+            </li>
+            <li>
+                <a href="/myApp/companyTags">
+                    <i class="entypo-thumbs-up"></i>
+                    <span>福利词云</span>
+                </a>
+            </li>
+            <li>
+                <a href="/myApp/educational">
+                    <i class="entypo-book-open"></i>
+                    <span>学历分布</span>
+                </a>
+            </li>
+            <li>
+                <a href="/myApp/companyStatus">
+                    <i class="entypo-briefcase"></i>
+                    <span>企业融资</span>
+                </a>
+            </li>
+        </ul>
+    </li>
+</ul>
+
+</div>
+<div class="main-content">
+
+
+
+
+    <div class="row"  style="display: flex">
+            <div  style="margin-left: auto" class="col-md-6 col-sm-4 clearfix hidden-xs">
+            <ul class="list-inline links-list pull-right">
+                <li class="sep"></li>
+                <li>
+                    <a href="/myApp/logOut">
+                        退出登录 <i class="entypo-logout right"></i>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <hr>
+
+    <ol class="breadcrumb bc-3">
+            <li>
+                <a href="#"><i class="entypo-home"></i>个人中心</a>
+            </li>
+            <li class="active">
+                <strong>
+                    个人信息
+                </strong>
+            </li>
+        </ol>
+            <h2>个人信息修改</h2>
+            <br>
+
+<div class="row">
+    <div class="col-md-12">
+        <div class="panel panel-primary" data-collapsed="0">
+            <div class="panel-heading">
+                <div class="panel-options">
+                    <a href="#sample-modal" data-toggle="modal" data-target="#sample-modal-dialog-1"</i></a>
+                    <a href="#" data-rel="collapse"><i class="entypo-down-open"></i></a>
+                    <a href="#" data-rel="reload"><i class="entypo-arrows-ccw"></i></a>
+                </div>
+            </div>
+            <div class="panel-body">
+                <form role="form" enctype="multipart/form-data" method="POST" action="/myApp/selfInfo/" class="form-horizontal form-groups-bordered">
+                    <div class="form-group">
+                        <label for="field-1" class="col-sm-3 control-label">用户名</label>
+                        <div class="col-sm-5">
+                            <input type="text" class="form-control" name="username" readonly value="{{ userInfo.username }}" id="field-1" placeholder="请输入用户名">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="field-2" class="col-sm-3 control-label">学历</label>
+                        <div class="col-sm-5">
+                            <select name="educational" class="form-control">
+                                {% for e in pageData.educations %}
+                                    {% if e == userInfo.educational %}
+                                        <option selected value="{{ e }}">{{ e }}</option>
+                                    {% else %}
+                                        <option value="{{ e }}">{{ e }}</option>
+                                    {% endif %}
+                                {% endfor %}
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="field-3" class="col-sm-3 control-label">工作经验</label>
+                        <div class="col-sm-5">
+                            <select name="workExperience" class="form-control">
+                                {% for e in pageData.workExperience1 %}
+                                    {% if e == userInfo.workExperience %}
+                                        <option selected value="{{ e }}">{{ e }}</option>
+                                    {% else %}
+                                        <option value="{{ e }}">{{ e }}</option>
+                                    {% endif %}
+                                {% endfor %}
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="field-1" class="col-sm-3 control-label">意向区域</label>
+                        <div class="col-sm-5">
+                            <input type="text" name="address" class="form-control" id="field-1" value="{{ userInfo.address }}" placeholder="请输入意向区域">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="field-ta" class="col-sm-3 control-label">意向岗位</label>
+                        <div class="col-sm-5">
+                            <select name="work" class="form-control">
+                                {% for e in pageData.jobList %}
+                                    {% if e == userInfo.work %}
+                                        <option selected value="{{ e }}">{{ e }}</option>
+                                    {% else %}
+                                        <option value="{{ e }}">{{ e }}</option>
+                                    {% endif %}
+                                {% endfor %}
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label">更改头像</label>
+                        <div class="col-sm-5">
+                            <div class="fileinput fileinput-new" data-provides="fileinput">
+                                <div class="fileinput-new thumbnail" style="width: 200px; height: 150px;" data-trigger="fileinput">
+                                    <img src="/media/{{ userInfo.avatar }}" alt="...">
+                                </div>
+                                <div class="fileinput-preview fileinput-exists thumbnail" style="max-width: 200px; max-height: 150px; line-height: 6px;"></div>
+                                <div>
+                                    <span class="btn btn-white btn-file">
+                                        <span class="fileinput-new">上传图片</span>
+                                        <span class="fileinput-exists">更改</span>
+                                        <input type="file" name="avatar" accept="image/*">
+                                    </span>
+                                    <a href="#" class="btn btn-orange fileinput-exists" data-dismiss="fileinput">删除</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-sm-offset-3 col-sm-5">
+                            <button type="submit" class="btn btn-default">提交</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<footer class="main">
+        基于Python的招聘数据可视化分析系统🐋.
+{#        <a target="_blank" href="https://www.zhipin.com/beijing/?seoRefer=index">BOSS直聘</a>#}
+</footer>
+
+    </div>
+        <link rel="stylesheet" href="/static/css/jquery-jvectormap-1.2.2.css">
+        <link rel="stylesheet" href="/static/css/rickshaw.min.css">
+        <link rel="stylesheet" href="/static/css/datatables.responsive.css">
+        <link rel="stylesheet" href="/static/css/select2-bootstrap.css">
+        <link rel="stylesheet" href="/static/css/select2.css">
+        <!-- Bottom Scripts -->
+        <script src="/static/js/main-gsap.js"></script>
+        <script src="/static/js/jquery-ui-1.10.3.minimal.min.js"></script>
+        <script src="/static/js/bootstrap.js"></script>
+        <script src="/static/js/joinable.js"></script>
+        <script src="/static/js/resizeable.js"></script>
+        <script src="/static/js/neon-api.js"></script>
+        <script src="/static/js/jquery-jvectormap-1.2.2.min.js"></script>
+        <script src="/static/js/jquery-jvectormap-europe-merc-en.js"></script>
+        <script src="/static/js/jquery-jvectormap-world-mill-en.js"></script>
+        <script src="/static/js/jquery.sparkline.min.js"></script>
+        <script src="/static/js/d3.v3.js"></script>
+        <script src="/static/js/rickshaw.min.js"></script>
+        <script src="/static/js/neon-chat.js"></script>
+        <script src="/static/js/neon-custom.js"></script>
+        <script src="/static/js/neon-demo.js"></script>
+        <script src="/static/js/echarts.js"></script>
+        <script src="/static/js/jquery.dataTables.min.js"></script>
+        <script src="/static/js/TableTools.min.js"></script>
+        <script src="/static/js/dataTables.bootstrap.js"></script>
+        <script src="/static/js/jquery.dataTables.columnFilter.js"></script>
+        <script src="/static/js/lodash.min.js"></script>
+        <script src="/static/js/datatables.responsive.js"></script>
+        <script src="/static/js/fileinput.js"></script>
+    </div>
+</body>
+</html>

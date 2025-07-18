@@ -1,0 +1,698 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="description" content="Neon Admin Panel">
+	<meta name="author" content="">
+	<title>首页</title>
+	<link rel="stylesheet" href="/static/css/jquery-ui-1.10.3.custom.min.css">
+	<link rel="stylesheet" href="/static/css/entypo.css">
+	<link rel="stylesheet" href="/static/css/css.css">
+	<link rel="stylesheet" href="/static/css/bootstrap.css">
+	<link rel="stylesheet" href="/static/css/neon-core.css">
+	<link rel="stylesheet" href="/static/css/neon-theme.css">
+	<link rel="stylesheet" href="/static/css/neon-forms.css">
+	<link rel="stylesheet" href="/static/css/custom.css">
+
+	<script src="/static/js/jquery-1.11.0.min.js"></script>
+
+
+</head>
+
+
+<body class="page-body  page-left-in" data-url="http://neon.dev">
+    <div class="page-container">
+        <div class="sidebar-menu">
+            <header class="logo-env">
+                <div class="logo">
+                        <h3 style="color: #FFFFFF;font-size: initial;font-weight: bold;margin-top: 5px;
+                        text-align: center;">基于Python的招聘数据分析<br>可视化系统</h3>
+                        
+                </div>
+            </header>
+
+
+
+                    <div class="sidebar-user-info">
+
+                <div class="sui-normal">
+                    <a href="#" class="user-link">
+                        <img style="width: 120%;border-radius: 50%" src="/media/{{ userInfo.avatar }}" width="120" alt="">
+                        <span style="text-align: center;padding-top: 200px">👑</span>
+                        <strong style="text-align: center;margin-top: 5px">{{ userInfo.username }}</strong>
+                    </a>
+                </div>
+
+                <div class="sui-hover inline-links animate-in"><!-- You can remove "inline-links" class to make links appear vertically, class "animate-in" will make A elements animateable when click on user profile -->
+                    <a href="#">
+                        <i class="entypo-pencil"></i>
+                        New Page
+                    </a>
+
+                    <a href="mailbox.html">
+                        <i class="entypo-mail"></i>
+                        Inbox
+                    </a>
+
+                    <a href="extra-lockscreen.html">
+                        <i class="entypo-lock"></i>
+                        Log Off
+                    </a>
+
+                    <span class="close-sui-popup">&times;</span><!-- this is mandatory -->			</div>
+            </div>
+    
+
+
+
+<ul id="main-menu">
+    <li class="opened active">
+        <a href="/myApp/home">
+            <i class="entypo-network"></i>
+            <span>首页</span>
+        </a>
+    </li>
+    <li>
+        <a href="#">
+            <i class="entypo-user"></i>
+            <span>个人中心</span>
+        </a>
+        <ul>
+            <li>
+                <a href="/myApp/selfInfo">
+                    <i class="entypo-vcard"></i>
+                    <span>个人信息</span>
+                </a>
+            </li>
+            <li>
+                <a href="/myApp/changePassword">
+                    <i class="entypo-eye"></i>
+                    <span>修改密码</span>
+                </a>
+            </li>
+        </ul>
+    </li>
+    <li>
+        <a href="#">
+            <i class="entypo-layout"></i>
+            <span>数据统计</span>
+        </a>
+        <ul>
+            <li>
+                <a href="/myApp/tableData">
+                     <i class="entypo-list"></i>
+                    <span>数据总览</span>
+                </a>
+            </li>
+            <li>
+                <a href="/myApp/historyTableData">
+                    <i class="entypo-back-in-time"></i>
+                    <span>历史查阅</span>
+                </a>
+            </li>
+        </ul>
+    </li>
+    <li>
+        <a href="mailbox.html">
+            <i class="entypo-chart-bar"></i>
+            <span>可视化图表</span>
+        </a>
+        <ul>
+            <li>
+                <a href="/myApp/salary">
+                    <i class="entypo-inbox"></i>
+                    <span>薪资情况</span>
+                </a>
+            </li>
+            <li>
+                <a href="/myApp/company">
+                    <i class="entypo-attach"></i>
+                    <span>企业情况</span>
+                </a>
+            </li>
+            <li>
+                <a href="/myApp/companyTags">
+                    <i class="entypo-thumbs-up"></i>
+                    <span>词云展示</span>
+                </a>
+            </li>
+            <li>
+                <a href="/myApp/educational">
+                    <i class="entypo-book-open"></i>
+                    <span>学历分布</span>
+                </a>
+            </li>
+            <li>
+                <a href="/myApp/companyStatus">
+                    <i class="entypo-briefcase"></i>
+                    <span>企业融资</span>
+                </a>
+            </li>
+        </ul>
+    </li>
+</ul>
+
+</div>
+<div class="main-content">
+
+
+
+<div class="row" style="display: flex">
+    <div style="margin-left: auto" class="col-md-6 col-sm-4 clearfix hidden-xs">
+        <ul class="list-inline links-list pull-right">
+            <li class="sep"></li>
+            <li>
+                <a href="/myApp/logOut">
+                    退出登录 <i class="entypo-logout right"></i>
+                </a>
+            </li>
+        </ul>
+    </div>
+</div>
+
+    <hr>
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="well">
+                        <h1>{{ dataInfo.month }} {{ dataInfo.day }}, {{ dataInfo.year }}</h1>
+                        <h3>你好🌞：<strong>{{ userInfo.username }}</strong>，🚀🚀🚀所有资源已为你准备就绪！🚀🚀🚀</h3>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-sm-9">
+            <div class="row">
+                <div class="col-sm-6">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <div class="panel-title">用户创建时间饼状图</div>
+                            <div class="panel-options">
+                                <a href="#sample-modal" data-toggle="modal" data-target="#sample-modal-dialog-1" ></a>
+                                <a href="#" data-rel="collapse"><i class="entypo-down-open"></i></a>
+                                <a href="#" data-rel="reload"><i class="entypo-arrows-ccw"></i></a>
+                            </div>
+                        </div>
+                        <div class="panel-body">
+                            <div id="main" style="width: 100%;height: 300px"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-sm-6">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <div class="panel-title">用户信息表单</div>
+                            <div class="panel-options">
+                                <a href="#sample-modal" data-toggle="modal" data-target="#sample-modal-dialog-1"</a>
+                                <a href="#" data-rel="collapse"><i class="entypo-down-open"></i></a>
+                                <a href="#" data-rel="reload"><i class="entypo-arrows-ccw"></i></a>
+                            </div>
+                        </div>
+                        <table class="table table-bordered table-responsive">
+                            <thead>
+                                <tr>
+                                    <th>#</th>
+                                    <th class="text-center">用户名</th>
+                                    <th>密码</th>
+                                    <th>创建时间</th>
+                                    <th>用户头像</th>
+                                </tr>
+                            </thead>
+
+                            <tbody>
+                            {% for u in top6Users %}
+                                        <tr>
+                                            <td>{{ u.id }}</td>
+                                            <td>{{ u.username }}</td>
+                                            <td style="max-width: 130px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; ">{{ u.password }}</td>
+                                            <td class="text-center">{{ u.createTime | date:"Y-m-d" }}</td>
+                                            <td class="text-center">
+                                                <img class="img-circle" src="/media/{{ u.avatar }}" width="32" alt="">
+                                            </td>
+                                        </tr>
+                            {% endfor %}
+                            </tbody>
+                            
+                        </table>
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <div class="panel-title">
+                        <h4>
+                            数据获取时间柱状图
+                        </h4>
+                    </div>
+
+                    <div class="panel-options">
+                        <a href="#sample-modal" data-toggle="modal" data-target="#sample-modal-dialog-1"></i></a>
+                        <a href="#" data-rel="collapse"><i class="entypo-down-open"></i></a>
+                        <a href="#" data-rel="reload"><i class="entypo-arrows-ccw"></i></a>
+                    </div>
+                </div>
+
+                <div class="panel-body no-padding">
+                    <div id="rickshaw-chart-demo-2">
+                        <div id="mainTwo" style="width: 100%;height:350px "></div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="col-sm-3">
+            <div class="tile-stats tile-red">
+                    <div class="icon"><i class="entypo-chart-pie"></i></div>
+                    <div class="num"
+                         data-start="0"
+                         data-end="{{ tagDic.jobsLen }}"
+                         data-postfix=""
+                         data-duration="1500"
+                         data-delay="0">
+                        {{ tagDic.jobsLen }}
+                    </div>
+                    <h3>数据总量统计📊</h3>
+            </div>
+
+            <div class="tile-stats tile-blue">
+                    <div class="icon"><i class="entypo-user"></i></div>
+                    <div class="num"
+                         data-start="0"
+                         data-end="{{ tagDic.usersLen }}"
+                         data-postfix=""
+                         data-duration="1500"
+                         data-delay="0">
+                        {{ tagDic.usersLen }}
+                    </div>
+                    <h3>用户数据统计📉</h3>
+            </div>
+
+            <div class="tile-stats tile-orange">
+                    <div class="icon"><i class="entypo-graduation-cap"></i></div>
+                    <div class="num"
+                         data-start="0"
+                         data-end="{{ tagDic.educationsTop }}"
+                         data-postfix=""
+                         data-duration="1500"
+                         data-delay="0">
+                        {{ tagDic.educationsTop }}
+                    </div>
+                    <h3>行业最高学历💼</h3>
+            </div>
+
+            <div class="tile-stats tile-green">
+                    <div class="icon"><i class="entypo-up"></i></div>
+                    <div class="num"
+                         data-start="0"
+                         data-end="{{ tagDic.salaryTop }}"
+                         data-postfix=""
+                         data-duration="1500"
+                         data-delay="0">
+                        {{ tagDic.salaryTop }}
+                    </div>
+                    <h3>行业最高薪资💸</h3>
+            </div>
+
+            <div class="tile-stats tile-pink">
+                    <div class="icon"><i class="entypo-location"></i></div>
+                    <div class="num"
+                         style="font-size: 24px"
+                         data-postfix=""
+                         data-duration="1500"
+                         data-delay="0">
+                        {{ tagDic.distTop }}
+                    </div>
+                    <h3>行业热门城市🌃</h3>
+            </div>
+
+            <div class="tile-stats tile-plum">
+                    <div class="icon"><i class="entypo-monitor"></i></div>
+                    <div class="num"
+                         data-start="0"
+                         data-end="{{ tagDic.salaryMonthTop }}"
+                         data-postfix=""
+                         data-duration="1500"
+                         data-delay="0">
+                        {{ tagDic.salaryMonthTop }}
+                    </div>
+                    <h3>最高年底多薪💰</h3>
+            </div>
+
+            <div class="tile-stats tile-gray">
+                    <div class="icon"><i class="entypo-keyboard"></i></div>
+                    <div class="num"
+                         data-start="0"
+                         data-postfix=""
+                         data-duration="1500"
+                         data-delay="0">
+                        {% if not tagDic.practiceMax %}
+                            正常岗位
+                        {% else %}
+                            实习岗位
+                        {% endif %}
+                    </div>
+                    <h3>最多岗位性质📞</h3>
+            </div>
+        </div>
+    </div>
+
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="panel panel-default" data-collapsed="0">
+                    <div class="panel-heading">
+                        <div class="panel-title">数据表格</div>
+                        <div class="panel-options">
+                            <a href="#sample-modal" data-toggle="modal" data-target="#sample-modal-dialog-3"</i></a>
+                            <a href="#" data-rel="collapse"><i class="entypo-down-open"></i></a>
+                            <a href="#" data-rel="reload"><i class="entypo-arrows-ccw"></i></a>
+                        </div>
+                    </div>
+                    <div class="panel-body no-padding">
+                        <div id="table-1_wrapper" class="dataTables_wrapper form-inline" role="grid">
+                            <!-- 表格内容 -->
+                            <table class="table table-bordered datatable dataTable" id="table-1" aria-describedby="table-1_info">
+                                <thead>
+                                    <tr role="row">
+                                        <th class="text-center">表格编号</th>
+                                        <th class="text-center">职位名称</th>
+                                        <th class="text-center">工作地点</th>
+                                        <th class="text-center">公司行政区</th>
+                                        <th class="text-center">职位类型</th>
+                                        <th class="text-center">学历要求</th>
+                                        <th class="text-center">工作经验</th>
+                                        <th class="text-center">工作标签</th>
+                                        <th class="text-center">最高薪水</th>
+                                        <th class="text-center">年底多薪</th>
+                                        <th class="text-center">是否实习</th>
+                                        <th class="text-center">公司名称</th>
+                                        <th class="text-center">公司福利</th>
+                                        <th class="text-center">公司封面</th>
+                                        <th class="text-center">融资阶段</th>
+                                        <th class="text-center">公司人数</th>
+                                        <th class="text-center">跳转页面</th>
+                                    </tr>
+                                </thead>
+                                <tbody role="alert" aria-live="polite" aria-relevant="all">
+                                    {% for job in tableData %}
+                                        <tr class="gradeA odd">
+                                            <td class="text-center">{{ forloop.counter }}</td>
+                                            <td class="text-center"><a href="https://www.zhipin.com/web/geek/job?query={{   job.title }}">{{ job.title }}</a></td>
+                                            <td class="text-center">{{ job.address }}</td>
+                                            <td class="text-center">{{ job.dist }}</td>
+                                            <td class="text-center">{{ job.type }}</td>
+                                            <td class="text-center">{{ job.educational }}</td>
+                                            <td class="text-center">{{ job.workExperience }}</td>
+                                            <td class="text-center" style="width: 200px;">{{ job.workTag }}</td>
+                                            <td class="text-center">{% if job.practice %}{{ job.salary }}/天{% else %}{{ job.salary }}/月{% endif %}</td>
+                                            <td class="text-center">{% if job.salaryMonth != '0' %}{{ job.salaryMonth }}薪{% else %}无{% endif %}</td>
+                                            <td class="text-center">{% if job.practice != 0 %}实习岗位{% else %}正常岗位{% endif %}</td>
+                                            <td class="text-center">{{ job.companyTitle }}</td>
+                                            <td class="text-center" style="width: 200px;">{{ job.companyTags }}</td>
+                                            <td class="text-center"><img src="{{ job.companyAvatar }}" alt="" style="max-width: 100px;"></td>
+                                            <td class="text-center">{{ job.companyStatus }}</td>
+                                            <td class="text-center">{{ job.companyPeople }}</td>
+                                            <td class="text-center">
+                                                <a href="{{ job.detailUrl }}" class="btn btn-info" style="margin-bottom: 5px">岗位详情</a>
+                                                <a href="{{ job.companyUrl }}" class="btn btn-success" style="margin-bottom: 5px">公司详情</a>
+                                                <a href="/myApp/addHistory/{{ job.id }}" type="button" class="btn btn-danger">添加历史</a>
+                                            </td>
+                                        </tr>
+                                    {% endfor %}
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <footer class="main">
+
+
+                 基于Python的招聘数据可视化分析系统🐋.
+{#                <a target="_blank" href="https://www.zhipin.com/beijing/?seoRefer=index">BOSS直聘</a>#}
+
+        </footer>
+
+    </div>
+        <link rel="stylesheet" href="/static/css/jquery-jvectormap-1.2.2.css">
+        <link rel="stylesheet" href="/static/css/rickshaw.min.css">
+        <link rel="stylesheet" href="/static/css/datatables.responsive.css">
+        <link rel="stylesheet" href="/static/css/select2-bootstrap.css">
+        <link rel="stylesheet" href="/static/css/select2.css">
+        <!-- Bottom Scripts -->
+        <script src="/static/js/main-gsap.js"></script>
+        <script src="/static/js/jquery-ui-1.10.3.minimal.min.js"></script>
+        <script src="/static/js/bootstrap.js"></script>
+        <script src="/static/js/joinable.js"></script>
+        <script src="/static/js/resizeable.js"></script>
+        <script src="/static/js/neon-api.js"></script>
+        <script src="/static/js/jquery-jvectormap-1.2.2.min.js"></script>
+        <script src="/static/js/jquery-jvectormap-europe-merc-en.js"></script>
+        <script src="/static/js/jquery-jvectormap-world-mill-en.js"></script>
+        <script src="/static/js/jquery.sparkline.min.js"></script>
+        <script src="/static/js/d3.v3.js"></script>
+        <script src="/static/js/rickshaw.min.js"></script>
+        <script src="/static/js/neon-chat.js"></script>
+        <script src="/static/js/neon-custom.js"></script>
+        <script src="/static/js/neon-demo.js"></script>
+        <script src="/static/js/echarts.js"></script>
+        <script src="/static/js/jquery.dataTables.min.js"></script>
+        <script src="/static/js/TableTools.min.js"></script>
+        <script src="/static/js/dataTables.bootstrap.js"></script>
+        <script src="/static/js/jquery.dataTables.columnFilter.js"></script>
+        <script src="/static/js/lodash.min.js"></script>
+        <script src="/static/js/datatables.responsive.js"></script>
+        <script type="text/javascript">
+            var responsiveHelper;
+            var breakpointDefinition = {
+            tablet: 1024,
+            phone : 480
+        };
+            var tableContainer;
+
+            jQuery(document).ready(function ($)
+            {
+                tableContainer = $("#table-1");
+
+                tableContainer.dataTable({
+                "sPaginationType": "bootstrap",
+                "aLengthMenu": [[5, 10, 20, -1], [5, 10, 20, "All"]],
+                "bStateSave": true,
+
+
+                // Responsive Settings
+                bAutoWidth     : false,
+                fnPreDrawCallback: function () {
+                // Initialize the responsive datatables helper once.
+                if (!responsiveHelper) {
+                responsiveHelper = new ResponsiveDatatablesHelper(tableContainer, breakpointDefinition);
+            }
+            },
+                fnRowCallback  : function (nRow, aData, iDisplayIndex, iDisplayIndexFull) {
+                responsiveHelper.createExpandIcon(nRow);
+            },
+                fnDrawCallback : function (oSettings) {
+                responsiveHelper.respond();
+            }
+            });
+
+                $(".dataTables_wrapper select").select2({
+                minimumResultsForSearch: -1
+            });
+            })
+            ;
+        </script>
+        <script>
+            var chartDom = document.getElementById('main');
+            var myChart = echarts.init(chartDom);
+            var option;
+
+            option = {
+              tooltip: {
+                trigger: 'item'
+              },
+              legend: {
+                top: '2%',
+                left: 'center'
+              },
+              series: [
+                {
+                  name: '用户数量',
+                  type: 'pie',
+                  radius: ['40%', '70%'],
+                  avoidLabelOverlap: false,
+                  itemStyle: {
+                    borderRadius: 10,
+                    borderColor: '#fff',
+                    borderWidth: 2
+                  },
+                  label: {
+                    show: false,
+                    position: 'center'
+                  },
+                  emphasis: {
+                    label: {
+                      show: true,
+                      fontSize: 20,
+                      fontWeight: 'bold'
+                    }
+                  },
+                  labelLine: {
+                    show: false
+                  },
+                  data: {{ userCreateData | safe }}
+                }
+              ]
+            };
+
+            option && myChart.setOption(option);
+
+        </script>
+
+        <script>
+            var charDom = document.getElementById('mainTwo');
+            let data = {{ jobsPBarData | safe }};
+            console.log(data);
+            var myChart = echarts.init(charDom);
+            let xRes = data.slice(0, 8).map(item => item[0]);
+            let yRes = data.slice(0, 8).map(item => item[1]);
+            let yResTwo = data.slice(0, 8).map(item => item[2]);
+
+            let options = {textStyle: {
+                color: '#000000' // 设置全局文字为白色（假设背景是深色）
+                },
+                tooltip: {
+                    trigger: 'axis',
+                    axisPointer: {
+                        type: 'cross',
+                        label: {
+                            backgroundColor: '#180808'
+                        }
+                    }
+                },
+                toolbox: {
+                    show: true,
+                    feature: {
+                        dataView: { readOnly: false },
+                        magicType: { type: ['line', 'bar'] },
+                        saveAsImage: {}
+                    }
+                    
+                },
+                legend: {
+                    data: ['爬取数据量', '数据平均值'],
+                    textStyle: {
+                    color: '#180808' // 图例文字黑色
+                    }
+                },
+                xAxis: {
+                    type: 'category',
+                    data: xRes,
+                    boundaryGap: true
+                },
+                yAxis: [
+                    {
+                        type: 'value',
+                        name: '爬取数据量',
+                        axisLabel: {
+                            formatter: '{value} 个'
+                        }
+                    },
+                    {
+                        type: 'value',
+                        name: '数据平均值',
+                        min: 0,
+                        max: 1,
+                        axisLabel: {
+                            formatter: '{value} %'
+                        },
+                        splitLine: { show: false }
+                    }
+                ],
+                series: [
+                    {
+                        data: yRes,
+                        type: 'line',
+                        name: '爬取数据量',
+                        markPoint: {
+                            data: [
+                                { type: 'max', name: '最大值' },
+                                { type: 'min', name: '最小值' }
+                            ]
+                        },
+                        color: {
+                            type: 'linear',
+                            x: 0,
+                            y: 0,
+                            x2: 0,
+                            y2: 1,
+                            colorStops: [
+                                { offset: 0, color: '#800320' },
+                                { offset: 1, color: 'rgba(231,5,57,0.71)' }
+                            ]
+                        }
+                    },
+                    {
+                        data: yResTwo,
+                        type: 'bar',
+                        name: '数据平均值',
+                        yAxisIndex: 1,
+                        markPoint: {
+                            data: [
+                                { type: 'max', name: '最大值' },
+                                { type: 'min', name: '最小值' }
+                            ]
+                        },
+                        color: {
+                            type: 'linear',
+                            x: 0,
+                            y: 0,
+                            x2: 0,
+                            y2: 1,
+                            colorStops: [
+                                { offset: 0, color: '#11066b' },
+                                { offset: 1, color: '#15183d' }
+                            ]
+                        }
+                    }
+                ]
+            };
+            myChart.setOption(options);
+
+            let count = 0;
+            setInterval(() => {
+                if (count >= data.length) count = 0;
+                xRes.shift();
+                xRes.push(data[count][0]);
+                yRes.shift();
+                yRes.push(data[count][1]);
+                yResTwo.shift();
+                yResTwo.push(data[count][2]);
+                count++;
+
+                myChart.setOption({
+                    xAxis: {
+                        data: xRes
+                    },
+                    series: [
+                        {
+                            data: yRes
+                        },
+                        {
+                            data: yResTwo
+                        }
+                    ]
+                });
+            }, 2000);
+        </script>
+    </div>
+</body>
+</html>
